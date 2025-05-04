@@ -425,9 +425,7 @@ GPHASE_ENUM one_Mission_Cam(GPHASE_ENUM);
 GPHASE_ENUM one_Mission_Album(GPHASE_ENUM);
 GPHASE_ENUM one_Mission_Save(GPHASE_ENUM);
 
-void SetNextGPhase(GPHASE_ID_ENUM id);
-void InitGPhaseSys();
-//void SetInitFlag();
-//GPHASE_ENUM DoJobPhase(int layer);
-void GPhaseSysMain();
+extern void SetNextGPhase(GPHASE_ID_ENUM id);
+extern void InitGPhaseSys();
+extern void GPhaseSysMain();
 #endif//GPHASE_H
