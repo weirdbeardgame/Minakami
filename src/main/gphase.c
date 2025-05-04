@@ -486,6 +486,53 @@ GPHASE_DAT gphase_tbl[94] = {
     {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0}
 };
 
+void SetNextGPhase(/* a1 5 */ GPHASE_ID_ENUM id)
+{
+  int layer;
+  int i;
+  GPHASE_DAT *gp;
+  GPHASE_DAT *gpbak;
+
+  gpbak = &gphase_tbl[id];
+  gp = &gphase_tbl[id];
+  layer = gp->layer;
+
+  gphase_sys.next[layer] = id;
+
+  for (i = layer; i < gphase_sys_num; i++)
+  {
+    if (gp->son_num != 0)
+    {
+      id = (GPHASE_ID_ENUM) gp->son_ID;
+      gphase_sys.next[i + 1] = id;
+      gp = &gphase_tbl[id];
+    }
+    else
+    {
+      for (; i < 5; i++)
+      {
+        gphase_sys.next[i + 1] = GPHASE_ID_NONE;
+      }
+      break;
+    }
+  }
+
+  gp = gpbak;
+  for (i = layer; i > 0; i--)
+  {
+    if (gp->superID >= 0)
+    {
+      id = (GPHASE_ID_ENUM) gp->superID;
+      gphase_sys.next[i - 1] = id;
+      gp = &gphase_tbl[id];
+    }
+    else
+    {
+      break;
+    }
+  }
+}
+
 void InitGPhaseSys(void)
 {
   for (int i = 0; i < gphase_sys_num; i++)
@@ -496,7 +543,7 @@ void InitGPhaseSys(void)
   SetNextGPhase(GID_SUPER);
 }
 
-void SetInitFlag(void)
+static void SetInitFlag(void)
 {
   for (int i = 0; i < 6; i++)
   {
@@ -511,7 +558,7 @@ void SetInitFlag(void)
   }
 }
 
-GPHASE_ENUM DoJobPhase(int layer)
+static GPHASE_ENUM DoJobPhase(int layer)
 {
   GPHASE_ENUM result = GPHASE_CONTINUE;
 
@@ -567,51 +614,4 @@ void GPhaseSysMain(void)
     i--;
   }
   while (-1 < i);
-}
-
-void SetNextGPhase(/* a1 5 */ GPHASE_ID_ENUM id)
-{
-  int layer;
-  int i;
-  GPHASE_DAT *gp;
-  GPHASE_DAT *gpbak;
-
-  gpbak = &gphase_tbl[id];
-  gp = &gphase_tbl[id];
-  layer = gp->layer;
-
-  gphase_sys.next[layer] = id;
-
-  for (i = layer; i < gphase_sys_num; i++)
-  {
-    if (gp->son_num != 0)
-    {
-      id = (GPHASE_ID_ENUM) gp->son_ID;
-      gphase_sys.next[i + 1] = id;
-      gp = &gphase_tbl[id];
-    }
-    else
-    {
-      for (; i < 5; i++)
-      {
-        gphase_sys.next[i + 1] = GPHASE_ID_NONE;
-      }
-      break;
-    }
-  }
-
-  gp = gpbak;
-  for (i = layer; i > 0; i--)
-  {
-    if (gp->superID >= 0)
-    {
-      id = (GPHASE_ID_ENUM) gp->superID;
-      gphase_sys.next[i - 1] = id;
-      gp = &gphase_tbl[id];
-    }
-    else
-    {
-      break;
-    }
-  }
 }
