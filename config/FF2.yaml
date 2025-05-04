@@ -202,7 +202,7 @@ segments:
       - [0xadfd0, asmtu, ingame/gameover/prg/gameover_menu_load] # size:0x1b48
       - [0xafb18, asmtu, ingame/gameover/prg/gameover_menu_top] # size:0xad0
       - [0xb05e8, asmtu, ingame/menu/ghost_seal_door] # size:0x3c0
-      - [0xb09a8, asmtu, main/gphase] # size:0x390
+      - [0xb09a8, c, main/gphase] # size:0x390
       - [0xb0d38, asmtu, graphics/graph3d/gra3d] # size:0x5080
       - [0xb5db8, asmtu, graphics/graph3d/gra3dBoundingBox] # size:0xa40
       - [0xb67f8, asmtu, graphics/graph3d/gra3dConst] # size:0x1f8

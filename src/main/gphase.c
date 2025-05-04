@@ -1,5 +1,5 @@
-#include "common.h"
 #include "gphase.h"
+#include "common.h"
 #include "main.h"
 
 GPHASE_SYS gphase_sys;
@@ -100,102 +100,100 @@ void (*ini_func[94])() = {
     init_Mission_Album,
     init_Mission_Save,
 };
-void (*end_func[94])() = {
-    end_super,
-    end_Boot_Init,
-    end_Boot_PadCheck,
-    end_LangData_Check,
-    end_LangSel_Main,
-    end_AutoLoad_Main,
-    end_UBI_Mode,
-    end_OutGame_Main,
-    end_Story_Main,
-    end_GameOver_Menu,
-    end_Ending_Movie,
-    end_GameResult,
-    end_ClearMenu,
-    end_SoftResetMain,
-    end_Debug_Menu,
-    end_Tecmo_Mode,
-    end_Project_Mode,
-    end_Title_Mode,
-    end_Title_Movie_Mode,
-    end_Story_NowLoading,
-    end_Story_Normal,
-    end_Story_Damage,
-    end_Story_Door_Open,
-    end_Story_Debug,
-    end_Story_Debug_Cam,
-    end_Story_Pause,
-    end_Story_Pause_Mission,
-    end_Story_Menu,
-    end_Story_Map,
-    end_Story_Mission_St,
-    end_Story_Mission_Result,
-    end_Story_Game_Over_Pre,
-    end_Story_Game_Over,
-    end_Story_Scene,
-    end_Story_Movie,
-    end_Story_Effect,
-    end_EventMsg_Disp,
-    end_EventFile_Disp,
-    end_Story_Photo,
-    end_Story_Ene_Dead,
-    end_Story_Puzzle,
-    end_Story_SavePoint,
-    end_Story_Movie_Room_Sel,
-    end_GameOver_Menu_Top,
-    end_GameOver_Menu_Load,
-    end_GameOver_Menu_Album,
-    end_Ending_Normal1,
-    end_Ending_Normal2,
-    end_Ending_Hard,
-    end_GameResult_Top,
-    end_ClearMenu_Top,
-    end_ClearMenu_Save,
-    end_ClearMenu_Album,
-    end_Title_Top,
-    end_Title_Menu,
-    end_Title_NewGame,
-    end_Title_LoadGame,
-    end_Title_Setup,
-    end_Title_Album,
-    end_Title_Gallery,
-    end_Title_Option,
-    end_Title_FrameRate_Sel,
-    end_Title_Chapter_Sel,
-    end_Title_Move_Movie,
-    end_Story_Load_Mission,
-    end_Story_Load_Mission_Event,
-    end_Story_Load_Mission_Save,
-    end_Story_GameOver_Eff,
-    end_Story_GameOver_Fade,
-    end_Story_GameOver_Movie,
-    end_Story_Scene_PreLoad,
-    end_Story_Scene_Main,
-    end_Story_Movie_PreLoad,
-    end_Story_Movie_Main,
-    end_Puzzle_InConf,
-    end_Puzzle_CrossFade,
-    end_Puzzle_Hina,
-    end_Puzzle_Roku,
-    end_Puzzle_Kaza,
-    end_Puzzle_Kaza2,
-    end_Puzzle_Kai1,
-    end_Puzzle_Kai2,
-    end_SavePoint_FadeIn,
-    end_SavePoint_Main,
-    end_SavePoint_FadeOut,
-    end_Title_SetupMenu,
-    end_Title_Mission,
-    end_SavePoint_Top,
-    end_SavePoint_Save,
-    end_SavePoint_Album,
-    end_Mission_Sel,
-    end_Mission_Cam,
-    end_Mission_Album,
-    end_Mission_Save
-};
+void (*end_func[94])() = {end_super,
+                          end_Boot_Init,
+                          end_Boot_PadCheck,
+                          end_LangData_Check,
+                          end_LangSel_Main,
+                          end_AutoLoad_Main,
+                          end_UBI_Mode,
+                          end_OutGame_Main,
+                          end_Story_Main,
+                          end_GameOver_Menu,
+                          end_Ending_Movie,
+                          end_GameResult,
+                          end_ClearMenu,
+                          end_SoftResetMain,
+                          end_Debug_Menu,
+                          end_Tecmo_Mode,
+                          end_Project_Mode,
+                          end_Title_Mode,
+                          end_Title_Movie_Mode,
+                          end_Story_NowLoading,
+                          end_Story_Normal,
+                          end_Story_Damage,
+                          end_Story_Door_Open,
+                          end_Story_Debug,
+                          end_Story_Debug_Cam,
+                          end_Story_Pause,
+                          end_Story_Pause_Mission,
+                          end_Story_Menu,
+                          end_Story_Map,
+                          end_Story_Mission_St,
+                          end_Story_Mission_Result,
+                          end_Story_Game_Over_Pre,
+                          end_Story_Game_Over,
+                          end_Story_Scene,
+                          end_Story_Movie,
+                          end_Story_Effect,
+                          end_EventMsg_Disp,
+                          end_EventFile_Disp,
+                          end_Story_Photo,
+                          end_Story_Ene_Dead,
+                          end_Story_Puzzle,
+                          end_Story_SavePoint,
+                          end_Story_Movie_Room_Sel,
+                          end_GameOver_Menu_Top,
+                          end_GameOver_Menu_Load,
+                          end_GameOver_Menu_Album,
+                          end_Ending_Normal1,
+                          end_Ending_Normal2,
+                          end_Ending_Hard,
+                          end_GameResult_Top,
+                          end_ClearMenu_Top,
+                          end_ClearMenu_Save,
+                          end_ClearMenu_Album,
+                          end_Title_Top,
+                          end_Title_Menu,
+                          end_Title_NewGame,
+                          end_Title_LoadGame,
+                          end_Title_Setup,
+                          end_Title_Album,
+                          end_Title_Gallery,
+                          end_Title_Option,
+                          end_Title_FrameRate_Sel,
+                          end_Title_Chapter_Sel,
+                          end_Title_Move_Movie,
+                          end_Story_Load_Mission,
+                          end_Story_Load_Mission_Event,
+                          end_Story_Load_Mission_Save,
+                          end_Story_GameOver_Eff,
+                          end_Story_GameOver_Fade,
+                          end_Story_GameOver_Movie,
+                          end_Story_Scene_PreLoad,
+                          end_Story_Scene_Main,
+                          end_Story_Movie_PreLoad,
+                          end_Story_Movie_Main,
+                          end_Puzzle_InConf,
+                          end_Puzzle_CrossFade,
+                          end_Puzzle_Hina,
+                          end_Puzzle_Roku,
+                          end_Puzzle_Kaza,
+                          end_Puzzle_Kaza2,
+                          end_Puzzle_Kai1,
+                          end_Puzzle_Kai2,
+                          end_SavePoint_FadeIn,
+                          end_SavePoint_Main,
+                          end_SavePoint_FadeOut,
+                          end_Title_SetupMenu,
+                          end_Title_Mission,
+                          end_SavePoint_Top,
+                          end_SavePoint_Save,
+                          end_SavePoint_Album,
+                          end_Mission_Sel,
+                          end_Mission_Cam,
+                          end_Mission_Album,
+                          end_Mission_Save};
 GPHASE_ENUM(*pre_func[94])
 (GPHASE_ENUM) = {
     pre_super,
@@ -392,227 +390,228 @@ GPHASE_ENUM(*after_func[94])
 };
 
 GPHASE_DAT gphase_tbl[94] = {
-    {0, GPHASE_ID_NONE, GID_BOOT_INIT, 14},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GID_TECMO_MODE, 4},
-    {1, GID_SUPER, GID_STORY_NOWLOADING, 24},
-    {1, GID_SUPER, GID_GAMEOVER_MENU_TOP, 3},
-    {1, GID_SUPER, GID_ENDING_NORMAL1, 3},
-    {1, GID_SUPER, GID_GAMERESULT_TOP, 1},
-    {1, GID_SUPER, GID_CLEARMENU_TOP, 3},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {1, GID_SUPER, GPHASE_ID_NONE, 0},
-    {2, GID_OUTGAME_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_OUTGAME_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_OUTGAME_MAIN, GID_TITLE_TOP, 11},
-    {2, GID_OUTGAME_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GID_STORY_LOAD_MISSION, 3},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GID_STORY_GAMEOVER_EFF, 3},
-    {2, GID_STORY_MAIN, GID_STORY_SCENE_PRELOAD, 2},
-    {2, GID_STORY_MAIN, GID_STORY_MOVIE_PRELOAD, 2},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_STORY_MAIN, GID_PUZZLE_INCONF, 8},
-    {2, GID_STORY_MAIN, GID_SAVEPOINT_FADEIN, 3},
-    {2, GID_STORY_MAIN, GPHASE_ID_NONE, 0},
-    {2, GID_GAMEOVER_MENU, GPHASE_ID_NONE, 0},
-    {2, GID_GAMEOVER_MENU, GPHASE_ID_NONE, 0},
-    {2, GID_GAMEOVER_MENU, GPHASE_ID_NONE, 0},
-    {2, GID_ENDING_MOVIE, GPHASE_ID_NONE, 0},
-    {2, GID_ENDING_MOVIE, GPHASE_ID_NONE, 0},
-    {2, GID_ENDING_MOVIE, GPHASE_ID_NONE, 0},
-    {2, GID_GAMERESULT, GPHASE_ID_NONE, 0},
-    {2, GID_CLEARMENU, GPHASE_ID_NONE, 0},
-    {2, GID_CLEARMENU, GPHASE_ID_NONE, 0},
-    {2, GID_CLEARMENU, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GID_TITLE_SETUPMENU, 2},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_TITLE_MODE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_NOWLOADING, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_NOWLOADING, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_NOWLOADING, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_GAME_OVER, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_GAME_OVER, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_GAME_OVER, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_SCENE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_SCENE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_MOVIE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_MOVIE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_PUZZLE, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_SAVEPOINT, GPHASE_ID_NONE, 0},
-    {3, GID_STORY_SAVEPOINT, GID_SAVEPOINT_TOP, 3},
-    {3, GID_STORY_SAVEPOINT, GPHASE_ID_NONE, 0},
-    {4, GID_TITLE_SETUP, GPHASE_ID_NONE, 0},
-    {4, GID_TITLE_SETUP, GID_MISSION_SEL, 4},
-    {4, GID_SAVEPOINT_MAIN, GPHASE_ID_NONE, 0},
-    {4, GID_SAVEPOINT_MAIN, GPHASE_ID_NONE, 0},
-    {4, GID_SAVEPOINT_MAIN, GPHASE_ID_NONE, 0},
-    {5, GID_TITLE_MISSION, GPHASE_ID_NONE, 0},
-    {5, GID_TITLE_MISSION, GPHASE_ID_NONE, 0},
-    {5, GID_TITLE_MISSION, GPHASE_ID_NONE, 0},
-    {5, GID_TITLE_MISSION, GPHASE_ID_NONE, 0}
+    {0,       GPHASE_ID_NONE,           GID_BOOT_INIT, 14},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GID_TECMO_MODE,  4},
+    {1,            GID_SUPER,    GID_STORY_NOWLOADING, 24},
+    {1,            GID_SUPER,   GID_GAMEOVER_MENU_TOP,  3},
+    {1,            GID_SUPER,      GID_ENDING_NORMAL1,  3},
+    {1,            GID_SUPER,      GID_GAMERESULT_TOP,  1},
+    {1,            GID_SUPER,       GID_CLEARMENU_TOP,  3},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {1,            GID_SUPER,          GPHASE_ID_NONE,  0},
+    {2,     GID_OUTGAME_MAIN,          GPHASE_ID_NONE,  0},
+    {2,     GID_OUTGAME_MAIN,          GPHASE_ID_NONE,  0},
+    {2,     GID_OUTGAME_MAIN,           GID_TITLE_TOP, 11},
+    {2,     GID_OUTGAME_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,  GID_STORY_LOAD_MISSION,  3},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,  GID_STORY_GAMEOVER_EFF,  3},
+    {2,       GID_STORY_MAIN, GID_STORY_SCENE_PRELOAD,  2},
+    {2,       GID_STORY_MAIN, GID_STORY_MOVIE_PRELOAD,  2},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,       GID_STORY_MAIN,       GID_PUZZLE_INCONF,  8},
+    {2,       GID_STORY_MAIN,    GID_SAVEPOINT_FADEIN,  3},
+    {2,       GID_STORY_MAIN,          GPHASE_ID_NONE,  0},
+    {2,    GID_GAMEOVER_MENU,          GPHASE_ID_NONE,  0},
+    {2,    GID_GAMEOVER_MENU,          GPHASE_ID_NONE,  0},
+    {2,    GID_GAMEOVER_MENU,          GPHASE_ID_NONE,  0},
+    {2,     GID_ENDING_MOVIE,          GPHASE_ID_NONE,  0},
+    {2,     GID_ENDING_MOVIE,          GPHASE_ID_NONE,  0},
+    {2,     GID_ENDING_MOVIE,          GPHASE_ID_NONE,  0},
+    {2,       GID_GAMERESULT,          GPHASE_ID_NONE,  0},
+    {2,        GID_CLEARMENU,          GPHASE_ID_NONE,  0},
+    {2,        GID_CLEARMENU,          GPHASE_ID_NONE,  0},
+    {2,        GID_CLEARMENU,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,     GID_TITLE_SETUPMENU,  2},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3,       GID_TITLE_MODE,          GPHASE_ID_NONE,  0},
+    {3, GID_STORY_NOWLOADING,          GPHASE_ID_NONE,  0},
+    {3, GID_STORY_NOWLOADING,          GPHASE_ID_NONE,  0},
+    {3, GID_STORY_NOWLOADING,          GPHASE_ID_NONE,  0},
+    {3,  GID_STORY_GAME_OVER,          GPHASE_ID_NONE,  0},
+    {3,  GID_STORY_GAME_OVER,          GPHASE_ID_NONE,  0},
+    {3,  GID_STORY_GAME_OVER,          GPHASE_ID_NONE,  0},
+    {3,      GID_STORY_SCENE,          GPHASE_ID_NONE,  0},
+    {3,      GID_STORY_SCENE,          GPHASE_ID_NONE,  0},
+    {3,      GID_STORY_MOVIE,          GPHASE_ID_NONE,  0},
+    {3,      GID_STORY_MOVIE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,     GID_STORY_PUZZLE,          GPHASE_ID_NONE,  0},
+    {3,  GID_STORY_SAVEPOINT,          GPHASE_ID_NONE,  0},
+    {3,  GID_STORY_SAVEPOINT,       GID_SAVEPOINT_TOP,  3},
+    {3,  GID_STORY_SAVEPOINT,          GPHASE_ID_NONE,  0},
+    {4,      GID_TITLE_SETUP,          GPHASE_ID_NONE,  0},
+    {4,      GID_TITLE_SETUP,         GID_MISSION_SEL,  4},
+    {4,   GID_SAVEPOINT_MAIN,          GPHASE_ID_NONE,  0},
+    {4,   GID_SAVEPOINT_MAIN,          GPHASE_ID_NONE,  0},
+    {4,   GID_SAVEPOINT_MAIN,          GPHASE_ID_NONE,  0},
+    {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0},
+    {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0},
+    {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0},
+    {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0}
 };
 
 void InitGPhaseSys(void)
 {
-    for (int i = 0; i < gphase_sys_num; i++)
-    {
-        gphase_sys.now[i] = GPHASE_ID_NONE;
-    }
+  for (int i = 0; i < gphase_sys_num; i++)
+  {
+    gphase_sys.now[i] = GPHASE_ID_NONE;
+  }
 
-    SetNextGPhase(GID_SUPER);
+  SetNextGPhase(GID_SUPER);
 }
 
 void SetInitFlag(void)
 {
-    for (int i = 0; i < 6; i++)
+  for (int i = 0; i < 6; i++)
+  {
+    if (gphase_sys.next[i] != gphase_sys.now[i])
     {
-        if (gphase_sys.next[i] != gphase_sys.now[i])
-        {
-            gphase_sys.ini_flg[i] = 1;
-        }
-        else
-        {
-            gphase_sys.ini_flg[i] = 0;
-        }
+      gphase_sys.ini_flg[i] = 1;
     }
+    else
+    {
+      gphase_sys.ini_flg[i] = 0;
+    }
+  }
 }
 
 GPHASE_ENUM DoJobPhase(int layer)
 {
-    GPHASE_ENUM result = GPHASE_CONTINUE;
+  GPHASE_ENUM result = GPHASE_CONTINUE;
 
-    if (layer >= 6)
-    {
-        printf("layer_num over %d\n\0\0\0\0", 6);
-        while (true)
-            ;
-    }
+  if (layer >= 6)
+  {
+    printf("layer_num over %d\n\0\0\0\0", 6);
+    while (true)
+      ;
+  }
 
-    if (gphase_sys.ini_flg[layer] != 0)
-    {
-        ini_func[gphase_sys.now[layer]]();
-    }
+  if (gphase_sys.ini_flg[layer] != 0)
+  {
+    ini_func[gphase_sys.now[layer]]();
+  }
 
-    if (pre_func[gphase_sys.now[layer]] != 0x0)
-    {
-        pre_func[gphase_sys.now[layer]]((GPHASE_ENUM)0);
-    }
+  if (pre_func[gphase_sys.now[layer]] != 0x0)
+  {
+    pre_func[gphase_sys.now[layer]]((GPHASE_ENUM) 0);
+  }
 
-    if (gphase_tbl[gphase_sys.now[layer]].son_num != 0)
-    {
-        result = DoJobPhase(layer + 1);
-    }
+  if (gphase_tbl[gphase_sys.now[layer]].son_num != 0)
+  {
+    result = DoJobPhase(layer + 1);
+  }
 
-    return after_func[gphase_sys.now[layer]](result);
+  return after_func[gphase_sys.now[layer]](result);
 }
 
 void GPhaseSysMain(void)
 {
-    int i = 0;
+  int i = 0;
 
-    SetInitFlag();
+  SetInitFlag();
 
-    do
+  do
+  {
+    gphase_sys.now[i] = gphase_sys.next[i];
+    i++;
+  }
+  while (i < 6);
+
+  DoJobPhase(0);
+  i = 5;
+
+  do
+  {
+    if ((gphase_sys.now[i] != GPHASE_ID_NONE)
+        && (gphase_sys.now[i] != gphase_sys.next[i]))
     {
-        gphase_sys.now[i] = gphase_sys.next[i];
-        i++;
-    } while (i < 6);
+      (end_func[gphase_sys.now[i]])();
+    }
 
-    DoJobPhase(0);
-    i = 5;
-
-    do
-    {
-        if (
-            (gphase_sys.now[i] != GPHASE_ID_NONE) &&
-            (gphase_sys.now[i] != gphase_sys.next[i]))
-        {
-            (end_func[gphase_sys.now[i]])();
-        }
-
-        i--;
-    } while (-1 < i);
+    i--;
+  }
+  while (-1 < i);
 }
 
 void SetNextGPhase(/* a1 5 */ GPHASE_ID_ENUM id)
 {
-    int layer;
-    int i;
-    GPHASE_DAT *gp;
-    GPHASE_DAT *gpbak;
+  int layer;
+  int i;
+  GPHASE_DAT *gp;
+  GPHASE_DAT *gpbak;
 
-    gpbak = &gphase_tbl[id];
-    gp = &gphase_tbl[id];
-    layer = gp->layer;
+  gpbak = &gphase_tbl[id];
+  gp = &gphase_tbl[id];
+  layer = gp->layer;
 
-    gphase_sys.next[layer] = id;
+  gphase_sys.next[layer] = id;
 
-    for (i = layer; i < gphase_sys_num; i++)
+  for (i = layer; i < gphase_sys_num; i++)
+  {
+    if (gp->son_num != 0)
     {
-        if (gp->son_num != 0)
-        {
-            id = (GPHASE_ID_ENUM)gp->son_ID;
-            gphase_sys.next[i + 1] = id;
-            gp = &gphase_tbl[id];
-        }
-        else
-        {
-            for (; i < 5; i++)
-            {
-                gphase_sys.next[i + 1] = GPHASE_ID_NONE;
-            }
-            break;
-        }
+      id = (GPHASE_ID_ENUM) gp->son_ID;
+      gphase_sys.next[i + 1] = id;
+      gp = &gphase_tbl[id];
     }
-
-    gp = gpbak;
-    for (i = layer; i > 0; i--)
+    else
     {
-        if (gp->superID >= 0)
-        {
-            id = (GPHASE_ID_ENUM)gp->superID;
-            gphase_sys.next[i - 1] = id;
-            gp = &gphase_tbl[id];
-        }
-        else
-        {
-            break;
-        }
+      for (; i < 5; i++)
+      {
+        gphase_sys.next[i + 1] = GPHASE_ID_NONE;
+      }
+      break;
     }
+  }
+
+  gp = gpbak;
+  for (i = layer; i > 0; i--)
+  {
+    if (gp->superID >= 0)
+    {
+      id = (GPHASE_ID_ENUM) gp->superID;
+      gphase_sys.next[i - 1] = id;
+      gp = &gphase_tbl[id];
+    }
+    else
+    {
+      break;
+    }
+  }
 }
