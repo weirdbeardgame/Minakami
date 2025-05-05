@@ -2,6 +2,10 @@
 #include "common.h"
 #include "main.h"
 
+#define IN_DATA __attribute__((section(".data")))
+
+IN_DATA long fill = 0;
+
 static GPHASE_SYS gphase_sys;
 
 static void (*ini_func[94])() = {
@@ -484,6 +488,83 @@ static GPHASE_DAT gphase_tbl[94] = {
     {5,    GID_TITLE_MISSION,          GPHASE_ID_NONE,  0}
 };
 
+void InitGPhaseSys(void)
+{
+  for (int i = 0; i < gphase_sys_num; i++)
+  {
+    gphase_sys.now[i] = GPHASE_ID_NONE;
+  }
+
+  SetNextGPhase(GID_SUPER);
+}
+
+static void SetInitFlag(void)
+{
+  for (int i = 0; i < 6; i++)
+  {
+    if (gphase_sys.next[i] != gphase_sys.now[i])
+    {
+      gphase_sys.ini_flg[i] = 1;
+    }
+    else
+    {
+      gphase_sys.ini_flg[i] = 0;
+    }
+  }
+}
+
+static GPHASE_ENUM DoJobPhase(int layer)
+{
+  GPHASE_ENUM result = GPHASE_CONTINUE;
+
+  if (layer >= 6)
+  {
+    printf("layer_num over %d\n", 6);
+    while (true)
+      ;
+  }
+
+  if (gphase_sys.ini_flg[layer] != 0)
+  {
+    ini_func[gphase_sys.now[layer]]();
+  }
+
+  if (pre_func[gphase_sys.now[layer]] != 0x0)
+  {
+    pre_func[gphase_sys.now[layer]]((GPHASE_ENUM) 0);
+  }
+
+  if (gphase_tbl[gphase_sys.now[layer]].son_num != 0)
+  {
+    result = DoJobPhase(layer + 1);
+  }
+
+  return after_func[gphase_sys.now[layer]](result);
+}
+
+void GPhaseSysMain(void)
+{
+  int i = 0;
+
+  SetInitFlag();
+
+  for (i = 0; i < 6; i++)
+  {
+    gphase_sys.now[i] = gphase_sys.next[i];
+  }
+
+  DoJobPhase(0);
+
+  for (i = 5; i >= 0; i--)
+  {
+    if ((gphase_sys.now[i] != GPHASE_ID_NONE)
+        && (gphase_sys.now[i] != gphase_sys.next[i]))
+    {
+      (end_func[gphase_sys.now[i]])();
+    }
+  }
+}
+
 void SetNextGPhase(/* a1 5 */ GPHASE_ID_ENUM id)
 {
   int layer;
@@ -529,87 +610,4 @@ void SetNextGPhase(/* a1 5 */ GPHASE_ID_ENUM id)
       break;
     }
   }
-}
-
-void InitGPhaseSys(void)
-{
-  for (int i = 0; i < gphase_sys_num; i++)
-  {
-    gphase_sys.now[i] = GPHASE_ID_NONE;
-  }
-
-  SetNextGPhase(GID_SUPER);
-}
-
-static void SetInitFlag(void)
-{
-  for (int i = 0; i < 6; i++)
-  {
-    if (gphase_sys.next[i] != gphase_sys.now[i])
-    {
-      gphase_sys.ini_flg[i] = 1;
-    }
-    else
-    {
-      gphase_sys.ini_flg[i] = 0;
-    }
-  }
-}
-
-static GPHASE_ENUM DoJobPhase(int layer)
-{
-  GPHASE_ENUM result = GPHASE_CONTINUE;
-
-  if (layer >= 6)
-  {
-    printf("layer_num over %d\n\0\0\0\0", 6);
-    while (true)
-      ;
-  }
-
-  if (gphase_sys.ini_flg[layer] != 0)
-  {
-    ini_func[gphase_sys.now[layer]]();
-  }
-
-  if (pre_func[gphase_sys.now[layer]] != 0x0)
-  {
-    pre_func[gphase_sys.now[layer]]((GPHASE_ENUM) 0);
-  }
-
-  if (gphase_tbl[gphase_sys.now[layer]].son_num != 0)
-  {
-    result = DoJobPhase(layer + 1);
-  }
-
-  return after_func[gphase_sys.now[layer]](result);
-}
-
-void GPhaseSysMain(void)
-{
-  int i = 0;
-
-  SetInitFlag();
-
-  do
-  {
-    gphase_sys.now[i] = gphase_sys.next[i];
-    i++;
-  }
-  while (i < 6);
-
-  DoJobPhase(0);
-  i = 5;
-
-  do
-  {
-    if ((gphase_sys.now[i] != GPHASE_ID_NONE)
-        && (gphase_sys.now[i] != gphase_sys.next[i]))
-    {
-      (end_func[gphase_sys.now[i]])();
-    }
-
-    i--;
-  }
-  while (-1 < i);
 }
