@@ -2,9 +2,11 @@
 #include "common.h"
 #include "main.h"
 
+#define IN_BSS __attribute__((section(".bss")))
 #define IN_DATA __attribute__((section(".data")))
 
 IN_DATA long fill = 0;
+IN_BSS long bss_fill = 0;
 
 static GPHASE_SYS gphase_sys;
 

@@ -39,23 +39,19 @@ Character's that are living in the battle sytem contain stats like health and sp
 /// Mayu's stats differ from Mio's an amount
   if (ingame_wrk.mDifficulty.mValue == 1) {
     sis_wrk.cmn_wrk.st.hpmax = 10000;
-    goto LAB_0025be6c;
   }
   if (ingame_wrk.mDifficulty.mValue < 2) {
     if (ingame_wrk.mDifficulty.mValue == 0) {
                     /* end of inlined section */
       sis_wrk.cmn_wrk.st.hpmax = 15000;
-      goto LAB_0025be6c;
     }
   }
   else {
     if (ingame_wrk.mDifficulty.mValue == 2) {
       sis_wrk.cmn_wrk.st.hpmax = 7000;
-      goto LAB_0025be6c;
     }
     if (ingame_wrk.mDifficulty.mValue == 3) {
       sis_wrk.cmn_wrk.st.hpmax = 5000;
-      goto LAB_0025be6c;
     }
   }
   sis_wrk.cmn_wrk.st.hpmax = 10000
